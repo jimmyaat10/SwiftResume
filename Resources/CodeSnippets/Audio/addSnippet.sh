@@ -1,0 +1,1 @@
+cp AVFoundation_AVAudioPlayer.codesnippet ~/Library/Developer/Xcode/UserData/CodeSnippets

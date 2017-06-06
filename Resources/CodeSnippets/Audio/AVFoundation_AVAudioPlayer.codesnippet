@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>import AVFoundation
+var player: AVAudioPlayer!
+    
+func playAudio() {
+    guard let path = Bundle.main.path(forResource: "nameFile", ofType: "extension") else { return }
+    let url = URL(fileURLWithPath: path)
+    do {
+        let audio = try AVAudioPlayer(contentsOf: url)
+        self.player = audio
+        self.player.prepareToPlay()
+        // To run in background
+        // First check that you have enabled the capability for the Audio Background Mode
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayback)
+        } catch {
+            print("AudioSession error: \(error)")
+        }
+        self.player.play()
+    } catch {
+        print("Sound player not available: (error)")
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>AVFoundation_AVAudioPlayer</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>aat_playAudio</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>AAT AVAudioPlayer</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
