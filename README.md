@@ -30,6 +30,7 @@ Ordered Alphabetically
 - [Game](#Game)
 - [Git](#Git)
 - [Inspiration](#Inspiration)
+- [IOS 11](#IOS11)
 - [MapKit](#MapKit)
 - [Networking](#Networking)
 - [Notifications](#Notifications)
@@ -38,6 +39,7 @@ Ordered Alphabetically
 - [RxSwift](#RxSwift)
 - [Social](#Social)
 - [Search](#Search)
+- [Swift4](#Swift4)
 - [Testing](#Testing)
 - [UserDefaults](#UserDefaults)
 - [Video](#Video)
@@ -66,10 +68,25 @@ Ordered Alphabetically
 - Libraries
 	- [Spring](https://github.com/MengTo/Spring)
 	- [EasyAnimation](https://github.com/icanzilb/EasyAnimation)
+	- [Lottie](https://github.com/airbnb/lottie-ios) . Library that natively render After Effects vector animations
 - Good lectures
-	- [Transitions](https://www.youtube.com/watch?v=Psp0pzbwAWY)
+	- [WWDC 2017 - Session 235 - Building Visually Rich User Experiences](https://developer.apple.com/videos/play/wwdc2017/235/)
+		- 23m30s CoreAnimation Best Practices
+			- If animation happens and come back, the problem is the model
+			- Dont' do -> `animation.removedOnCompletion = false; animation.fillMode = kCAFillModeForwards`
+			- Set the models property after the animation, so apply final state when adding animations
+				- 	`let animation = CABasicAnimation(keyPath: "opacity"); animation.duration = 0.5; animation.fromValue = 1; animation.toValue = 0 //important ; layer.add(animation, forKey: nil); layer.opacity = 0 //important`   
+			- Transforms and Frames
+				- Frame is affected by transform
+				- Set bounds/position directly instead  
+			- Multiple Masks affect to performance, use shortcuts
+			- Layer Shadows affect performance, use shadow paths 
+	- [Clear Animation Code](http://ronnqvi.st/clear-animation-code/)
+	- [Multiple Animations](http://ronnqvi.st/multiple-animations/)
+	- [Youtube Channel Big Mountain - Transitions](https://www.youtube.com/watch?v=Psp0pzbwAWY)
 		- Transitions happen in the superview
 		- option showHideTransitionViews to not remove the view from superview 
+	- [Youtube Channel Brian Advent - Lottie](https://www.youtube.com/watch?v=ESjFEaZx7UI&list=PLY1P2_piiWEaaeO49ria36p6lQ1uk0q_F&index=2) 
 - Notes
 	- ios10 Property Animator. Control the animations when happening (reverse, pause) 
 	
@@ -101,6 +118,7 @@ Ordered Alphabetically
 - iOS Good lectures
 	- [Flow Controllers for Navigation](http://merowing.info/2016/01/improve-your-ios-architecture-with-flowcontrollers/) 
 	- [MV(x)](https://techblog.badoo.com/blog/2016/03/21/ios-architecture-patterns/)
+	- [Objc.io - MVVM at KickStarter](https://talk.objc.io/episodes/S01E47-view-models-at-kickstarter)
 - General Good lectures
 	- [Clean Architecture - Uncle Bob](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)
 	- Book - Working Effectively with Legacy Code (Michael C. Feathers)
@@ -142,6 +160,9 @@ Ordered Alphabetically
 	- [SnapKit](https://github.com/SnapKit/SnapKit)
 - Books
 - Conferences
+- Good to see
+	- [Youtube Channel Lets Build that APP](https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA)
+		- Autolayout by code with App Examples  
 - Tutorials
 
 ## CI
@@ -178,6 +199,7 @@ Ordered Alphabetically
 	- Dispatch barrier lets finish the tasks in the queue and when the barrier task finished, lets enter more tasks in the queue. Good options is to wrapper with an isolationQueue
 	- Found race conditions with Scheme - Run - Thread Sanitizer
 	- Operations queue is like dispatch but you can create dependencies and change the order they run
+	- In Xcode9, there's a default main thread checker
 
 ## CoreData
 
@@ -196,7 +218,14 @@ Ordered Alphabetically
 
 ## Git
 
+- Good to see
+	- [RWDevCon 2017 - PART 6: Mastering Git](https://videos.raywenderlich.com/courses/81-rwdevcon-2017-vault-tutorials/lessons/6)
+	- [Git Flow](https://danielkummer.github.io/git-flow-cheatsheet/)
+	- [Practical Git(Hub) - by Xavier Jurado](https://speakerdeck.com/xavierjurado/practical-git-hub)
 
+## IOS11
+
+- [WWDC 2017 - Videos](https://developer.apple.com/videos/wwdc2017/)
 
 ## MapKit
 
@@ -255,6 +284,7 @@ Another example is the [Persistence](https://github.com/jimmyaat10/MarvelSwift/b
 ## Security
 
 - Good Lectures
+	- [WWDC 2017 - Session 701 - Your Apps and Evolving Network Security Standards](https://developer.apple.com/videos/play/wwdc2017/701/) 
 	- [Collection of the most common vulnerabilities found in iOS applications](https://github.com/felixgr/secure-ios-app-dev) 
 	- [iOS Security basic](https://swifting.io/blog/2016/08/09/21-ios-security-101/)
 	- [iOS Security 101](https://engineers.sg/video/ios-security-101-ios-dev-scout--1356)
@@ -270,12 +300,21 @@ Another example is the [Persistence](https://github.com/jimmyaat10/MarvelSwift/b
 
 ## Social
 
+- Good to see
+	- [Objc.io - DeepLink at KickStarter](https://talk.objc.io/episodes/S01E49-deep-linking-at-kickstarter)
 - Pro Tips
 	- Testing out custom URL schemes or universal links `xcrun simctl openurl booted myApp:url` where booted is the current opened simulator. You can replace booted for the Device UDID. To see the list `xcrun simctl list`
+
+## Swift4
+
+- [What's new in Swift - by WWDC 2017](https://developer.apple.com/videos/play/wwdc2017/402/)
+- [What's new in Swift4 - by Oleb](https://github.com/ole/whats-new-in-swift-4)
+- [What's new in Swift4 - by RayWenderlich](https://www.raywenderlich.com/163857/whats-new-swift-4)
 
 ## Testing
 
 - Conferences
+	- [WWDC 2017 - Session 414 Engineering for Testability](https://developer.apple.com/videos/play/wwdc2017/414/) 
 	- [RWDevCon 2016 - PART 15: 207: Xcode UI Testing](https://videos.raywenderlich.com/courses/59-rwdevcon-2016-vault/lessons/15) 
 		- accessibilityIdentifer (testing only, distinguish views) vs accessibilityLabel (testing & impaired users + Localized + find views)
 - Good Lectures
@@ -329,7 +368,7 @@ Inspirations from (ordered alphabetically):
 - [Cocoa Controls](https://www.cocoacontrols.com/controls?language=2-swift)
 - [Cocoa with love](http://www.cocoawithlove.com/archive/)
 - Conferences
-	- [360iDev Videos](https://360idev.com/session-videos/) 	
+	- [360iDev Videos](https://360idev.com/session-videos/) 
 	- [AppBuilders 2016 Slides+Videos](https://github.com/swissmobidevs/appbuilders16) 
 	- [AppBuilders 2017 Slides+Videos](https://github.com/swissmobidevs/appbuilders17)
 	- [Cocoa Heads Fr Slides](http://cocoaheads.fr/slides/)
